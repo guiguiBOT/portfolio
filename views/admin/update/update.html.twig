@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/admin.css">
+		<title>Gestion des projets</title>
+	</head>
+	<body>
+		<header>
+			<div id="headerContainer" class="mainContainer">
+				<div class="navContainer">
+					<div class="logo">
+						<a href="/"><img src="/img/logo.png" alt="image d'un logo les initiales du créateur entourées de chevrons"></a>
+					</div>
+					<div class="about navLink">
+						<a href="/admin">GALLERY</a>
+					</div>
+					<div class="skills navLink">
+						<a href="/admin/create">ADD PROJECT</a>
+					</div>
+					<div class="portfolio navLink">
+						<a href="#portfolioContainer">FREE</a>
+					</div>
+					<div class="contact navLink">
+						<a href="#footerContainer">FREE</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<section>
+				<div>
+					<h2>Modifier un projet</h2>
+				</div>
+				<div>
+				<img src="/img/uploads/{{project.urlPicture}}" alt="image du projet {{project.title}}">
+				</div>
+				<form method="post" action="/admin/update/{{project.id}}" enctype="multipart/form-data">
+					<div>
+						<label for="title">Titre du projet</label>
+						<input id="title" type="text" name="title" value="{{project.title}}">
+						{% if error %}
+							<p>{{error.errors.name.title}}</p>
+						{% endif %}
+					</div>
+					<div>
+						<label for="description">description du projet</label>
+						<input id="description" type="text" name="description" value="{{project.description}}">
+						{% if error %}
+							<p>{{error.errors.name.title}}</p>
+						{% endif %}
+					</div>
+					<div>
+						<label for="github">Lien vers le github</label>
+						<input id="github" type="text" name="github" value="{{project.github}}">
+						{% if error %}
+							<p>{{error.errors.name.title}}</p>
+						{% endif %}
+					</div>
+					<div>
+						<label for="urlProject">Lien vers le projet en ligne</label>
+						<input id="urlProject" type="text" name="urlProject" value="{{project.urlProject}}">
+						{% if error %}
+							<p>{{error.errors.name.title}}</p>
+						{% endif %}
+					</div>
+					<div>
+						<label for="changePicture">Modifier la miniature du projet</label>
+						<input type="file" id="changePicture" name="changePicture">
+					</div>
+					<div id="btnContainer">
+						<button type="submit">Envoyer</button>
+					</div>
+				</form>
+			</section>
+		</main>
+		<footer></footer>
+	</body>
+</html>

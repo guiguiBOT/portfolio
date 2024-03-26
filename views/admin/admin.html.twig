@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/admin.css">
+		<title>Gestion des projets</title>
+	</head>
+	<body>
+		<header>
+			<div id="headerContainer" class="mainContainer">
+				<div class="navContainer">
+					<div class="logo">
+						<a href="/"><img src="img/logo.png" alt="image d'un logo les initiales du créateur entourées de chevrons"></a>
+					</div>
+					<div class="about navLink">
+						<a href="/admin">GALLERY</a>
+					</div>
+					<div class="skills navLink">
+						<a href="/admin/create">ADD PROJECT</a>
+					</div>
+					<div class="portfolio navLink">
+						<a href="#portfolioContainer">FREE</a>
+					</div>
+					<div class="contact navLink">
+						<a href="#footerContainer">FREE</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<section>
+				<div>
+					<h2>Gestion des projets</h2>
+				</div>
+				<div class="cardContainer">
+					{% for project in projectsCollection %}
+						<div class="card">
+							<div class="cardImage">
+								<img src="img/uploads/{{ project.urlPicture }}" alt="image du projet {{ project.title }}">
+							</div>
+							<div class="cardContent">
+								<h3>{{ project.title }}</h3>
+								<p>{{ project.description }}</p>
+								<a href="{{ project.github }}">Lien vers github</a>
+								<a href="{{ project.urlProject }}">Lien vers le projet en ligne</a>
+								<div class="cardButtons">
+									<a href="/admin/update/{{ project.id }}">Modifier</a>
+									<a href="/admin/delete/{{ project.id }}">Supprimer</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</section>
+		</main>
+		<footer></footer>
+	</body>
+</html>

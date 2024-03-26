@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/login.css">
+		<title>Page de login</title>
+	</head>
+	<body>
+		<header>
+			<div id="headerContainer" class="mainContainer">
+				<div class="navContainer">
+					<div class="logo">
+						<a href="/"><img src="img/logo.png" alt="image d'unn logo les initiales du créateur entourées de chevrons"></a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<section>
+				<div>
+					<h2>Page de login</h2>
+				</div>
+				<div id="formContainer">
+					<form action="./login" method="post">
+						<div>
+							<label for="name">Votre mail :</label>
+							<input type="text" id="email" name="email">
+							{% if error %}
+								<p>{{error.errors.email.message}}</p>
+							{% endif %}
+						</div>
+						<div>
+							<label for="password">Votre mot de passe :</label>
+							<input type="password" id="password" name="password">
+							{% if error %}
+								<p>{{error.errors.password.message}}</p>
+							{% endif %}
+						</div>
+						<div id="btnContainer">
+						<button>Envoyer</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</main>
+		<footer></footer>
+
+	</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/admin.css">
+		<title>Ajouter un projet</title>
+	</head>
+	<body>
+		<header>
+			{# <div id="headerContainer" class="mainContainer"> #}
+				<div class="navContainer">
+					<div class="logo">
+						<a href="/"><img src="../img/logo.png" alt="image d'un logo les initiales du créateur entourées de chevrons"></a>
+					</div>
+					<div class="about navLink">
+						<a href="/admin">GALLERY</a>
+					</div>
+					<div class="skills navLink">
+						<a href="#skillsContainer">ADD PROJECT</a>
+					</div>
+					<div class="portfolio navLink">
+						<a href="#portfolioContainer">FREE</a>
+					</div>
+					<div class="contact navLink">
+						<a href="#footerContainer">FREE</a>
+					</div>
+				</div>
+			{# </div> #}
+		</header>
+		<main>
+			<section class="addFormContainer">
+				<div>
+					<h2>AJOUTER UN PROJET</h2>
+				</div>
+				<form action="/admin/create" method="post" enctype="multipart/form-data">
+					<div>
+						<label for="title">Titre du projet</label>
+						<input type="text" id="title" name="title">
+						{% if error %}
+							<p>
+								{{error.errors.name.title}}
+							</p>
+						{% endif %}
+					</div>
+					<div>
+						<label for="description">Description du projet</label>
+						<textarea name="description" id="description" cols="30" rows="10"></textarea>
+						{% if error %}
+							<p>
+								{{error.errors.name.description}}
+							</p>
+						{% endif %}
+					</div>
+                    <div>
+						<label for="github">Lien vers le repository gitHub du projet</label>
+						<input type="text" id="github" name="github">
+						{% if error %}
+							<p>
+								{{error.errors.name.github}}
+							</p>
+						{% endif %}
+					</div>
+                    <div>
+						<label for="urlProject">Lien vers l'hébergement du projet</label>
+						<input type="text" id="urlProject" name="urlProject">
+						{% if error %}
+							<p>
+								{{error.errors.name.urlProject}}
+							</p>
+						{% endif %}
+					</div>
+                    <div>
+						<label for="urlPicture">Lien vers l'image miniature du projet</label>
+						<input type="file" id="urlPicture" name="urlPicture">
+						{% if error %}
+							<p>
+								{{error.errors.name.urlPicture}}
+							</p>
+						{% endif %}
+					</div>
+                    <div id="btnContainer">
+                        <button type="submit">Envoyer</button>
+                    </div>
+				</form>
+			</section>
+		</main>
+		<footer></footer>
+	</body>
+</html>

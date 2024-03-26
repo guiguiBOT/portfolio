@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("/img/bgimage.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #DDDDDD;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.logo img {
+    width: 100px;
+    margin-top: 50px;
+    margin-left: 113px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#formContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#btnContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
